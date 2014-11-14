@@ -7,6 +7,11 @@ game.PlayScreen = me.ScreenObject.extend({
 		game.data.score = 0;
                 
                 me.levelDirector.loadLevel("Kaelen");
+                
+                var player = me.pool.pull("mario", 0, 420, {});
+                me.game.world.addChild(player, 3);
+                
+                me.input.bindkey(me.input.KEY.RIGHT, "right");
 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
