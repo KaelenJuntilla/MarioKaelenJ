@@ -8,7 +8,7 @@ game.PlayerEntity = me.Entity.extend({
            width: 128,
            height: 128,
            getShape: function () {
-               return (new me.Rect(0, 0, 128, 128)).toPolygon();
+               return (new me.Rect(0, 0, 25, 128)).toPolygon();
            }
            
        }]);
@@ -19,8 +19,8 @@ game.PlayerEntity = me.Entity.extend({
        this.renderable.setCurrentAnimation("idle");
        
        this.body.setVelocity(5, 20);
-//       me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
-//            DELETE THIS COMMENT WHEN PROB FIX
+       me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
+
    },
    
    update: function(delta){
@@ -29,6 +29,9 @@ game.PlayerEntity = me.Entity.extend({
        if(me.input.isKeyPressed("right")){
            this.body.vel.x += this.body.accel.x * me.timer.tick;
            
+       }else if(me.input.isKeyPressed("left")){
+           this.body.vel.x -= this.body.accel.x / me.timer.tick;
+       
        }else{
            this.body.vel.x = 0;
        }
@@ -65,15 +68,15 @@ game.LevelTrigger = me.Entity.extend({
         this._super(me.Entity, 'init', [x, y, settings]);
         this.body.onCollision = this.onCollision.bind(this);
         this.level = settings.level;
-//        this.xSpawn = settings.xSpawn;
-//        this.ySpawn = settings.ySpawn;
-//          DELETE THIS COMMENT ABOVE WHEN PROB FIX
+        this.xSpawn = settings.xSpawn;
+        this.ySpawn = settings.ySpawn;
+
     },
     
     onCollision: function(){
         this.body.setCollisionMask(me.collision.types.NO_OBJECT);
         me.levelDirector.loadLevel(this.level);
-//        me.state.current().resetPlayer(this.xSpawn, this.ySpawn);/ DELETE THIS COMMENT WHEN PROB FIX
+        me.state.current().resetPlayer(this.xSpawn, this.ySpawn);
     }
     
 });
