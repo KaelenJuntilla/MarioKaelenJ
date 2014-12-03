@@ -8,7 +8,7 @@ game.PlayerEntity = me.Entity.extend({
            width: 128,
            height: 128,
            getShape: function () {
-               return (new me.Rect(0, 0, 128, 128)).toPolygon();
+               return (new me.Rect(0, 0, 30, 128)).toPolygon();
            }
            
        }]);
@@ -34,6 +34,11 @@ game.PlayerEntity = me.Entity.extend({
        
        }else{
            this.body.vel.x = 0;
+       }
+       
+       if(me.input.isKeyPressed("up")){
+           this.body.vel.y -= this.body.accel.y * me.timer.tick;
+           
        }
        
         this.body.update(delta);
