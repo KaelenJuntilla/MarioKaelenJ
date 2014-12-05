@@ -123,7 +123,7 @@ game.BadGuy = me.Entity.extend({
     
     update: function(delta){
         this.body.update(delta);
-        me.collision.check(this, true, this.collideHandler.bind (this), true);
+        me.collision.check(this, true, this.collideHandler.bind(this), true);
         
         if(this.alive){
             if(this.walkLeft && this.pos.x <= this.startX){
@@ -141,6 +141,10 @@ game.BadGuy = me.Entity.extend({
         
         this._super(me.Entity, "update", [delta]);
         return true;
+    },
+    
+    collideHandler: function(){
+        
     }
 
 
