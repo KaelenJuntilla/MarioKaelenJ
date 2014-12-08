@@ -57,7 +57,7 @@ game.PlayerEntity = me.Entity.extend({
            }else{
                this.renderable.setCurrentAnimation("idle");
            }
-        }else{
+       }else{
             if(!this.big){
            if(this.body.vel.x !== 0){
                 if(!this.renderable.isCurrentAnimation("bigWalk")) {
@@ -75,8 +75,10 @@ game.PlayerEntity = me.Entity.extend({
        return true;
    }
    
+   
    collideHandler: function(response){
        var ydif = this.pos.y - response.b.pos.y;
+       console.log(ydif);
        
        //response.b represents what mario is running into in this case it is badguy//
        if(response.b.type === 'badguy'){
@@ -87,6 +89,7 @@ game.PlayerEntity = me.Entity.extend({
                me.state.change(me.state.MENU);
        }else if(response.b.type === 'mushroom'){
            this.big = true;
+           me.game.world.removeChild(response.b);
        }
        
    }
