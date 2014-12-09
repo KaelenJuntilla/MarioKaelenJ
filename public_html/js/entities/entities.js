@@ -24,6 +24,7 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle");
 
         this.big = false;
+        //this is the set character speed for x and y axis//
         this.body.setVelocity(5, 20);
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
 
@@ -47,6 +48,7 @@ game.PlayerEntity = me.Entity.extend({
         }
        
         this.body.update(delta);
+        //this line of code will collide with anything that has a solid brick inside of tile// 
         me.collision.check(this, true, this.collideHandler.bind(this), true);
 
         if (!this.big) {

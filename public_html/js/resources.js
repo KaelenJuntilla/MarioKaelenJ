@@ -10,7 +10,7 @@ game.resources = [
         
 	
         {name: "Kaelen", type: "tmx", src: "data/map/KaelenMAP01.tmx"},
-        {name: "Kaelen2", type: "tmx", src: "data/map/KaelenMAP02.tmx"},
-        {name: "Kaelen3", type: "tmx", src: "data/map/KaelenMAP03.tmx"}
+        {name: "Kaelen2", type: "tmx", src: "data/map/KaelenMAP02.tmx"}
+
 	
 ];
