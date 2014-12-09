@@ -13,27 +13,27 @@
 	</head>
 	<body>
 		<!-- Canvas placeholder -->
-		<div id="screen"></div>
+                <div id="screen"></div>
 
-		<!-- melonJS Library -->
-		<!-- build:js js/app.min.js -->
-		<script type="text/javascript" src="lib/melonJS-1.1.0-min.js"></script>
+                <!-- melonJS Library -->
+                <!-- build:js js/app.min.js -->
+                <script type="text/javascript" src="lib/melonJS-1.1.0-min.js"></script>
 
-		<!-- Plugin(s) -->
-		<script type="text/javascript" src="lib/plugins/debugPanel.js"></script>
-		
-		<!-- Game Scripts -->
-		<script type="text/javascript" src="js/game.js"></script>
-		<script type="text/javascript" src="js/resources.js"></script>
+                <!-- Plugin(s) -->
+                <script type="text/javascript" src="lib/plugins/debugPanel.js"></script>
 
-		<script type="text/javascript" src="js/entities/entities.js"></script>
-		<script type="text/javascript" src="js/entities/HUD.js"></script>
+                <!-- Game Scripts -->
+                <script type="text/javascript" src="js/game.js"></script>
+                <script type="text/javascript" src="js/resources.js"></script>
 
-		<script type="text/javascript" src="js/screens/title.js"></script>
-		<script type="text/javascript" src="js/screens/play.js"></script>
-		<!-- /build -->
-		<!-- Bootstrap & Mobile optimization tricks -->
-		<script type="text/javascript">
+                <script type="text/javascript" src="js/entities/entities.js"></script>
+                <script type="text/javascript" src="js/entities/HUD.js"></script>
+
+                <script type="text/javascript" src="js/screens/title.js"></script>
+                <script type="text/javascript" src="js/screens/play.js"></script>
+                <!-- /build -->
+                <!-- Bootstrap & Mobile optimization tricks -->
+                <script type="text/javascript">
 			window.onReady(function onReady() {
 				game.onload();
 
@@ -50,13 +50,13 @@
 					(function () {
 						window.scrollTo(0, 1);
 						me.video.onresize(null);
-					}).defer();
+                            }).defer();
 
-					me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
-						window.scrollTo(0, 1);
-					});
-				}
-			});
+                            me.event.subscribe(me.event.WINDOW_ONRESIZE, function(e) {
+                                window.scrollTo(0, 1);
+                            });
+                        }
+                    });
 		</script>
 	</body>
 </html>
